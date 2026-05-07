@@ -225,18 +225,17 @@ sudo systemctl restart NetworkManager
 
 ---
 
-## Post-Install: GPU MUX
-
-> ⚠️ **Before rebooting from Windows into CachyOS, make sure Windows is set to Hybrid mode.** If Windows is left in dGPU/Performance mode, the MUX state carries over and CachyOS will boot to a black screen — it cannot initialize the internal display through the dGPU before the NVIDIA driver is fully loaded. Switching from CachyOS to Windows is not affected; Windows handles the MUX state on its own.
-
 ### MUX Switch Commands
-
+ 
 ```bash
-# Check current mode
-cat /sys/devices/platform/asus-nb-wmi/gpu_mux_mode
+# List all available armoury attributes including gpu_mux_mode
+asusctl armoury get list
+ 
+# Check current MUX mode
+asusctl armoury get gpu_mux_mode
 # 0 = dedicated/dGPU mode
 # 1 = hybrid mode (recommended)
-
+ 
 # Switch modes (requires reboot)
 sudo asusctl armoury set gpu_mux_mode 1   # hybrid
 sudo asusctl armoury set gpu_mux_mode 0   # dedicated (gaming, external monitor)
