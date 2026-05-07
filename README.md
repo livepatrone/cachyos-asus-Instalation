@@ -1,4 +1,4 @@
-# linux-g14-guide
+# linux-ASUS G14/16-guide
 My Asus G14 Cachyos installation guide and issues
 # CachyOS on the ASUS ROG Zephyrus G14 (GA403WW) — Full Setup Guide
 
